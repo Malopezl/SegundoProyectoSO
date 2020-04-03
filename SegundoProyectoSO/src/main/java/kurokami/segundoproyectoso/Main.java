@@ -5,17 +5,19 @@
  */
 package kurokami.segundoproyectoso;
 
+import kurokami.monitor.Monitor;
 /**
  *
  * @author marcos
  */
 public class Main extends javax.swing.JFrame {
-
+    Monitor monitor;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+        this.inicializacion();
     }
 
     /**
@@ -116,5 +118,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
-
+    public void inicializacion(){
+        monitor = new Monitor();
+    }
 }
