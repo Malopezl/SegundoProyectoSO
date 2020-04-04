@@ -13,9 +13,9 @@ import kurokami.monitor.Orden;
  */
 public class Preparacion extends Thread {
 
-    public int tiempo;
-    public String nombre;
-    public int id;
+    private int tiempo;
+    private String nombre;
+    private int id;
 
     public Preparacion(Orden orden) {
         this.tiempo = orden.getTiempoConsumo();
@@ -23,5 +23,22 @@ public class Preparacion extends Thread {
         this.id = orden.getID();
         
     }
+
+    public int getTiempo() {
+        return tiempo;
+    }
+
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int Id(){
+      return id;  
+    }
+
+
+    
 
 }

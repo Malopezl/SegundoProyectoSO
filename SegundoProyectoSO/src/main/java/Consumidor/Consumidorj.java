@@ -39,15 +39,18 @@ public class Consumidorj extends javax.swing.JPanel {
                 Orden cafe;
                 cafe = monitor.atenderOrden();
                 Preparacion preparacion = new Preparacion(cafe);
-                jLabel1.setText(preparacion.nombre);
-                jLabel2.setText(""+preparacion.id);
-                int var = preparacion.tiempo;
+                jLabel1.setText(preparacion.getName());
+                jLabel2.setText(""+preparacion.Id());
+                int tiempo = preparacion.getTiempo();
+                int var=0;
+                var = tiempo;
                 int x = 0;
                 while (x < var) {
 
-                    jLabel3.setText(x + "%");
+                    jLabel3.setText(x +"");
+                    var = tiempo-x;
                     try {
-                        sleep(100);
+                        sleep(200);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(Consumidorj.class.getName()).log(Level.SEVERE, null, ex);
                     }
