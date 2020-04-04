@@ -8,7 +8,8 @@ package Consumidor;
 import kurokami.monitor.Monitor;
 import kurokami.monitor.Orden;
 import Consumidor.Preparacion;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,35 +24,41 @@ public class Consumidorj extends javax.swing.JPanel {
         initComponents();
     }
 
-    
-/**
- *
- * @author Gilda
- */
-public class Consumidor extends Thread {
-    public Monitor monitor = new Monitor();
-    public void run() {
-        Boolean bandera = true;
-        while (bandera == true) {
-            Orden cafe;
-            cafe = monitor.atenderOrden();
-            Preparacion preparacion = new Preparacion(cafe);
-            
+    /**
+     *
+     * @author Gilda
+     */
+    public class Consumidor extends Thread {
+
+        int contador = 0;
+        public Monitor monitor = new Monitor();
+
+        public void run() {
+            Boolean bandera = true;
+            while (bandera == true) {
+                Orden cafe;
+                cafe = monitor.atenderOrden();
+                Preparacion preparacion = new Preparacion(cafe);
+                jLabel1.setText(preparacion.nombre);
+                jLabel2.setText(""+preparacion.id);
+                int var = preparacion.tiempo;
+                int x = 0;
+                while (x < var) {
+
+                    jLabel3.setText(x + "%");
+                    try {
+                        sleep(100);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Consumidorj.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    x++;
+                }
+                x = 0;
+
+            }
         }
     }
 
-}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,6 +72,9 @@ public class Consumidor extends Thread {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -72,23 +82,39 @@ public class Consumidor extends Thread {
 
         jLabel3.setText("jLabel3");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("PREPARACION DE CAFE");
+
+        jLabel5.setText("ID ORDEN:");
+
+        jLabel6.setText("TIPO:");
+
+        jLabel7.setText("TIEMPO RESTANTE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(91, 91, 91))
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel7)))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(30, 216, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,9 +124,16 @@ public class Consumidor extends Thread {
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
                     .addComponent(jLabel3))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -110,5 +143,8 @@ public class Consumidor extends Thread {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }
