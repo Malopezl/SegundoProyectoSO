@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package kurokami.cambioTiempo;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.SpinnerModel;
 import kurokami.monitor.TiempoPreparacion;
 /**
@@ -42,54 +44,82 @@ public class CambioTiempo extends javax.swing.JPanel {
         etiqetaExpreso = new javax.swing.JLabel();
         etiquetaFrench = new javax.swing.JLabel();
         etiquetaMoka = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        f = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1000, 700));
         setPreferredSize(new java.awt.Dimension(1000, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         chemex.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(chemex, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 390, -1));
+        add(chemex, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 390, -1));
 
         v60.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(v60, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 390, -1));
+        add(v60, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 390, -1));
 
         expreso.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(expreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 390, -1));
+        add(expreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 390, -1));
 
         french.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(french, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 390, -1));
+        add(french, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 390, -1));
 
         moka.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(moka, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 390, -1));
+        add(moka, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 390, -1));
 
         late.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(late, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, 390, -1));
+        add(late, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 570, 390, -1));
 
+        actualizar.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         actualizar.setText("Actualizar Tiempos");
         actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actualizarActionPerformed(evt);
             }
         });
-        add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 580, 270, -1));
+        add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 650, 280, 60));
 
+        etiquetaLate.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        etiquetaLate.setForeground(new java.awt.Color(254, 254, 254));
+        etiquetaLate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaLate.setText("Late Frio");
-        add(etiquetaLate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 210, 40));
+        add(etiquetaLate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, 210, 40));
 
+        etiquetaChemex.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        etiquetaChemex.setForeground(new java.awt.Color(254, 254, 254));
+        etiquetaChemex.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaChemex.setText(" Chemex");
-        add(etiquetaChemex, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, 40));
+        add(etiquetaChemex, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 210, 40));
 
+        etiquetaV60.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        etiquetaV60.setForeground(new java.awt.Color(254, 254, 254));
+        etiquetaV60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaV60.setText("V60");
-        add(etiquetaV60, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 210, 40));
+        add(etiquetaV60, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 210, 40));
 
+        etiqetaExpreso.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        etiqetaExpreso.setForeground(new java.awt.Color(254, 254, 254));
+        etiqetaExpreso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiqetaExpreso.setText("Expreso");
-        add(etiqetaExpreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 210, 40));
+        add(etiqetaExpreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 210, 40));
 
+        etiquetaFrench.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        etiquetaFrench.setForeground(new java.awt.Color(254, 254, 254));
+        etiquetaFrench.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaFrench.setText("French Press");
-        add(etiquetaFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 210, 40));
+        add(etiquetaFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 210, 40));
 
+        etiquetaMoka.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        etiquetaMoka.setForeground(new java.awt.Color(254, 254, 254));
+        etiquetaMoka.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaMoka.setText("Moka Italiano");
-        add(etiquetaMoka, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 210, 40));
+        add(etiquetaMoka, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 210, 40));
+
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Editar Tiempo de Preparacion");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+        add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 830));
     }// </editor-fold>//GEN-END:initComponents
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
@@ -113,7 +143,9 @@ public class CambioTiempo extends javax.swing.JPanel {
     private javax.swing.JLabel etiquetaMoka;
     private javax.swing.JLabel etiquetaV60;
     private javax.swing.JSpinner expreso;
+    private javax.swing.JLabel f;
     private javax.swing.JSpinner french;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSpinner late;
     private javax.swing.JSpinner moka;
     private javax.swing.JSpinner v60;
@@ -125,6 +157,8 @@ public class CambioTiempo extends javax.swing.JPanel {
         late.setValue(TiempoPreparacion.tiempoLate);
         moka.setValue(TiempoPreparacion.tiempoMoka);
         v60.setValue(TiempoPreparacion.tiempoV60);
+        ImageIcon fondo = new ImageIcon("fondos/f2.jpg");
+        f.setIcon(fondo);
         
     }
 }

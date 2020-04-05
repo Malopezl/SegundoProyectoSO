@@ -5,6 +5,8 @@
  */
 package malopezl.historial;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author malopez
@@ -16,6 +18,8 @@ public class Historial extends javax.swing.JPanel {
      */
     public Historial() {
         initComponents();
+        ImageIcon fondo = new ImageIcon("fondos/f3.jpg");
+        f.setIcon(fondo);
     }
 
     /**
@@ -33,16 +37,20 @@ public class Historial extends javax.swing.JPanel {
         jList1 = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
+        f = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("Region Critica");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Hora");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, -1, -1));
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -53,7 +61,7 @@ public class Historial extends javax.swing.JPanel {
         jList1.setEnabled(false);
         jScrollPane1.setViewportView(jList1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 80, 340));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 250, 380));
 
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -64,13 +72,21 @@ public class Historial extends javax.swing.JPanel {
         jList2.setEnabled(false);
         jScrollPane2.setViewportView(jList2);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 80, 340));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 230, 380));
+
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel3.setText("Historial");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
+        add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 760));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel f;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     public static javax.swing.JList<String> jList1;
     public static javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;

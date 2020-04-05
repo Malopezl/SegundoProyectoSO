@@ -5,6 +5,7 @@
  */
 package Productor;
 
+import javax.swing.ImageIcon;
 import kurokami.monitor.Monitor;
 
 /**
@@ -24,6 +25,11 @@ public class jPanelProductor extends javax.swing.JPanel {
         this.inicializar();
         this.setProductor(monitor);
     }
+    public jPanelProductor(Monitor monitor, productor p) {
+        initComponents();
+        this.inicializar();
+        this.p = p;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,11 +43,16 @@ public class jPanelProductor extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        f = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(500, 700));
         setPreferredSize(new java.awt.Dimension(500, 700));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText(" 𝑪𝑶𝑭𝑭𝑬𝑬 𝑺𝑯𝑶𝑷");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 410, 52));
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton1.setText("Ordenar");
@@ -50,6 +61,7 @@ public class jPanelProductor extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 137, 49));
 
         jComboBox1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -58,35 +70,8 @@ public class jPanelProductor extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
-        );
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 244, -1));
+        add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 830));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -102,6 +87,7 @@ public class jPanelProductor extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel f;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -113,7 +99,8 @@ public class jPanelProductor extends javax.swing.JPanel {
        this.jComboBox1.setModel(
                new javax.swing.DefaultComboBoxModel<>(
                        new String[] { "Seleccione su bebida", "Chemex", "V60", "Expresso", "French Press", "Moka", "Latte" })); 
- 
+       ImageIcon fondo = new ImageIcon("fondos/f1.jpg");
+        f.setIcon(fondo);
        
     }
     public void setProductor(Monitor monitor)

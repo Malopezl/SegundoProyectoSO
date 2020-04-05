@@ -80,6 +80,7 @@ public class Monitor {
         DefaultListModel ordenesModelo = new DefaultListModel();
         for (String i : lo) {
             ordenesModelo.addElement(i);
+            System.out.println(i);
         }
         Historial.jList1.setModel(ordenesModelo);
     }

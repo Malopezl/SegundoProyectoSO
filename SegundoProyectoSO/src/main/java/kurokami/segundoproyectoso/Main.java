@@ -5,18 +5,30 @@
  */
 package kurokami.segundoproyectoso;
 
+
+import Productor.*;
+import java.awt.Dimension;
+import javax.swing.JPanel;
+import kurokami.cambioTiempo.CambioTiempo;
 import kurokami.monitor.Monitor;
+import malopezl.historial.*;
+
 /**
  *
  * @author marcos
  */
 public class Main extends javax.swing.JFrame {
     Monitor monitor;
+    productor cliente;
+    jPanelProductor vistaProductor;
+    Historial historial;
+    CambioTiempo cambio;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+//        this.setVisible(true);
         this.inicializacion();
     }
 
@@ -29,6 +41,9 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        set3 = new javax.swing.JInternalFrame();
+        set1 = new javax.swing.JInternalFrame();
+        set2 = new javax.swing.JInternalFrame();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -40,19 +55,49 @@ public class Main extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1000, 810));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        set3.setVisible(true);
+        getContentPane().add(set3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1030, 840));
+
+        set1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        set1.setMinimumSize(new java.awt.Dimension(500, 700));
+        set1.setVisible(true);
+        set1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(set1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 500, 820));
+
+        set2.setMinimumSize(new java.awt.Dimension(500, 700));
+        set2.setPreferredSize(new java.awt.Dimension(500, 700));
+        set2.setVisible(true);
+        set2.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(set2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -20, 510, 830));
+
         fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        fileMenu.setText("Opciones");
 
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Manejo Pedidos");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Cambio de velocidad productor");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Historial");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
@@ -74,6 +119,30 @@ public class Main extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        // TODO add your handling code here:
+        set1.setVisible(false);
+        set2.setVisible(false);
+        set3.setVisible(true);
+        set3.setContentPane(historial);
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        // TODO add your handling code here:
+        set1.setVisible(false);
+        set2.setVisible(false);
+        set3.setVisible(true);
+        set3.setContentPane(cambio);
+    }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here
+        set1.setVisible(true);
+        set2.setVisible(true);
+        set3.setVisible(false);
+        set1.setContentPane(vistaProductor);
+    }//GEN-LAST:event_openMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,8 +186,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JInternalFrame set1;
+    private javax.swing.JInternalFrame set2;
+    private javax.swing.JInternalFrame set3;
     // End of variables declaration//GEN-END:variables
     public void inicializacion(){
         monitor = new Monitor();
+        vistaProductor = new jPanelProductor(monitor);
+        historial = new Historial();
+        cambio = new CambioTiempo();
     }
 }
