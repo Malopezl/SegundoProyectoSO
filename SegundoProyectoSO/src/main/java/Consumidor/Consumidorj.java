@@ -10,6 +10,7 @@ import kurokami.monitor.Orden;
 import Consumidor.Preparacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,6 +26,8 @@ public class Consumidorj extends javax.swing.JPanel {
         Consumidor c = new Consumidor();
         c.setMonitor(monitor);
         c.start();
+        ImageIcon fondo = new ImageIcon("fondos/f1.jpg");
+        f.setIcon(fondo);
     }
 
     /**
@@ -53,7 +56,7 @@ public class Consumidorj extends javax.swing.JPanel {
                     jLabel3.setText(x +"");
                     var = tiempo-x;
                     try {
-                        sleep(200);
+                        sleep(1000);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(Consumidorj.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -86,70 +89,47 @@ public class Consumidorj extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        f = new javax.swing.JLabel();
 
-        jLabel1.setText("jLabel1");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("jLabel2");
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 180, 30));
 
-        jLabel3.setText("jLabel3");
+        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 180, 30));
 
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 190, 30));
+
+        jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("PREPARACION DE CAFE");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("ID ORDEN:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("TIPO:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, 20));
 
-        jLabel7.setText("TIEMPO RESTANTE");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel7)))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 216, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel4)
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel3))
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
+        jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel7.setText("TIEMPO RESTANTE:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 170, -1));
+        add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(-490, 0, 1070, 830));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel f;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

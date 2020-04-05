@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import kurokami.cambioTiempo.CambioTiempo;
 import kurokami.monitor.Monitor;
 import malopezl.historial.*;
+import Consumidor.*;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     jPanelProductor vistaProductor;
     Historial historial;
     CambioTiempo cambio;
+    Consumidorj barista;
     /**
      * Creates new form Main
      */
@@ -56,7 +58,8 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         set3.setVisible(true);
-        getContentPane().add(set3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1030, 840));
+        set3.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(set3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -40, 1030, 820));
 
         set1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         set1.setMinimumSize(new java.awt.Dimension(500, 700));
@@ -68,7 +71,7 @@ public class Main extends javax.swing.JFrame {
         set2.setPreferredSize(new java.awt.Dimension(500, 700));
         set2.setVisible(true);
         set2.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(set2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -20, 510, 830));
+        getContentPane().add(set2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -40, 510, 830));
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Opciones");
@@ -141,7 +144,9 @@ public class Main extends javax.swing.JFrame {
         set1.setVisible(true);
         set2.setVisible(true);
         set3.setVisible(false);
+        set2.setContentPane(barista);
         set1.setContentPane(vistaProductor);
+        
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     /**
@@ -191,9 +196,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JInternalFrame set3;
     // End of variables declaration//GEN-END:variables
     public void inicializacion(){
+        set3.setLocation(0, 0);
         monitor = new Monitor();
         vistaProductor = new jPanelProductor(monitor);
         historial = new Historial();
         cambio = new CambioTiempo();
+        barista = new Consumidorj(monitor);
     }
 }
