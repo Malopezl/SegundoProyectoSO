@@ -20,8 +20,11 @@ public class Consumidorj extends javax.swing.JPanel {
     /**
      * Creates new form Consumidorj
      */
-    public Consumidorj() {
+    public Consumidorj(Monitor monitor) {
         initComponents();
+        Consumidor c = new Consumidor();
+        c.setMonitor(monitor);
+        c.start();
     }
 
     /**
@@ -31,7 +34,7 @@ public class Consumidorj extends javax.swing.JPanel {
     public class Consumidor extends Thread {
 
         int contador = 0;
-        public Monitor monitor = new Monitor();
+        public Monitor monitor;
 
         public void run() {
             Boolean bandera = true;
@@ -60,6 +63,11 @@ public class Consumidorj extends javax.swing.JPanel {
 
             }
         }
+
+        public void setMonitor(Monitor monitor) {
+            this.monitor = monitor;
+        }
+        
     }
 
     /**
