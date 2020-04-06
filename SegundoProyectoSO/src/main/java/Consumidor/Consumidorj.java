@@ -52,9 +52,9 @@ public class Consumidorj extends javax.swing.JPanel {
                 var = tiempo;
                 int x = 0;
                 while (x < var) {
-
-                    jLabel3.setText(x +"");
-                    var = tiempo-x;
+                    tiempo = var-x;
+                    jLabel3.setText(tiempo +"");
+                    
                     try {
                         sleep(1000);
                     } catch (InterruptedException ex) {
@@ -63,7 +63,8 @@ public class Consumidorj extends javax.swing.JPanel {
                     x++;
                 }
                 x = 0;
-
+                jLabel3.setText(0+"");
+                tiempo=0;
             }
         }
 
@@ -123,7 +124,7 @@ public class Consumidorj extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("TIEMPO RESTANTE:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 170, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 180, -1));
         add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(-490, 0, 1070, 830));
     }// </editor-fold>//GEN-END:initComponents
 
